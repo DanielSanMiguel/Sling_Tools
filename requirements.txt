@@ -1,4 +1,1 @@
-bs4 
-datetime
-pytz
-requests
+pandas
