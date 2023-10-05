@@ -10,10 +10,6 @@ import requests
 import json
 import pandas as pd
 
-token_github = st.secrets['github_token']
-at_token = st.secrets['at_token']
-at_base_id = st.secrets['at_base_id']
-
 at_token = st.secrets["at_token"]
 base_id = st.secrets["at_base_id"]
 table_name = 'DataCenter'
