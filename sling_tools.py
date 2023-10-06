@@ -84,7 +84,7 @@ if contrasena == contrasena_correcta:
         l_2 = json.loads(lista.text)
         lista_position = []
         for j in l_1:
-            if j['type'] == 'position':
+            if (j['type'] == 'position') and (j['archivedAt'] == None):
                 lista_position.append([j['name'],str(j['id'])])
         positions= pd.DataFrame(lista_position)
         st.write(positions)
