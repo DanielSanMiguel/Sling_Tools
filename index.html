@@ -18,5 +18,39 @@
         
         <input type="submit" value="Enviar">
     </form>
+    <script>
+    const formulario = document.getElementById('formulario');
+
+    formulario.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const pregunta1 = document.getElementById('pregunta1').value;
+        const pregunta2 = document.getElementById('pregunta2').value;
+        const pregunta3 = document.getElementById('pregunta3').value;
+
+        const data = {
+            pregunta1: pregunta1,
+            pregunta2: pregunta2,
+            pregunta3: pregunta3
+        };
+
+        fetch('https://api.airtable.com/v0/appFezarrh9fv6WrS/cuestionario', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer YOUR_API_KEY' // Reemplaza YOUR_API_KEY con tu clave de API de Airtable
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuestas enviadas correctamente:', data);
+            // Aquí puedes agregar cualquier lógica adicional después de enviar las respuestas
+        })
+        .catch(error => {
+            console.error('Error al enviar las respuestas:', error);
+        });
+    });
+</script>
 </body>
 </html>
